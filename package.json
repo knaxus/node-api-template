@@ -1,0 +1,41 @@
+{
+  "name": "api-template",
+  "version": "1.0.0",
+  "description": "Scalable folder stucture",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.9",
+    "npm": ">=3.10.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "test": "jest --watchAll",
+    "test:verbose": "jest --verbose",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "Ashok Dey <ashokdey100@gmail.com> (http://ashokdey.in)",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.42.0",
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^24.3.1",
+    "nodemon": "^1.18.9"
+  }
+}
