@@ -1,14 +1,14 @@
-const DB = require('../../db');
+const { MySQL } = require('../../db');
 const { hashPayload, jwt } = require('../../utils');
 
 async function createNewUser({
   email, password, firstName, lastName,
 }) {
   const hashedPassword = await hashPayload(password);
-  const user = await DB.sequelize.query(
+  const user = await MySQL.sequelize.query(
     'INSERT INTO users (email, password, first_name, last_name) VALUES (?, ?, ?, ?)',
     {
-      type: DB.sequelize.QueryTypes.INSERT,
+      type: MySQL.sequelize.QueryTypes.INSERT,
       replacements: [email, hashedPassword, firstName, lastName],
     },
   );
@@ -25,8 +25,8 @@ async function createNewUser({
 async function loginUser({ email, password }) {
   const hashedPassword = await hashPayload(password);
 
-  const res = await DB.sequelize.query('SELECT * FROM users WHERE email = ?', {
-    type: DB.sequelize.QueryTypes.SELECT,
+  const res = await MySQL.sequelize.query('SELECT * FROM users WHERE email = ?', {
+    type: MySQL.sequelize.QueryTypes.SELECT,
     replacements: [email],
   });
 
@@ -65,8 +65,8 @@ async function loginUser({ email, password }) {
 }
 
 async function changeUserPassword({ userId, oldPassword, newPassword }) {
-  const res = await DB.sequelize.query('SELECT * FROM users WHERE id = ?', {
-    type: DB.sequelize.QueryTypes.SELECT,
+  const res = await MySQL.sequelize.query('SELECT * FROM users WHERE id = ?', {
+    type: MySQL.sequelize.QueryTypes.SELECT,
     replacements: [userId],
   });
 
@@ -99,8 +99,8 @@ async function changeUserPassword({ userId, oldPassword, newPassword }) {
   }
 
   const newHashedPassword = await hashPayload(newPassword);
-  await DB.sequelize.query('UPDATE users SET password = ? WHERE id = ?', {
-    type: DB.sequelize.QueryTypes.UPDATE,
+  await MySQL.sequelize.query('UPDATE users SET password = ? WHERE id = ?', {
+    type: MySQL.sequelize.QueryTypes.UPDATE,
     replacements: [newHashedPassword, userId],
   });
   return {};
@@ -109,8 +109,8 @@ async function changeUserPassword({ userId, oldPassword, newPassword }) {
 async function changeUserEmail({
   userId, oldEmail, newEmail, password,
 }) {
-  const res = await DB.sequelize.query('SELECT * FROM users WHERE id = ?', {
-    type: DB.sequelize.QueryTypes.SELECT,
+  const res = await MySQL.sequelize.query('SELECT * FROM users WHERE id = ?', {
+    type: MySQL.sequelize.QueryTypes.SELECT,
     replacements: [userId],
   });
 
@@ -150,8 +150,8 @@ async function changeUserEmail({
     throw err;
   }
 
-  await DB.sequelize.query('UPDATE users SET email = ? WHERE id = ?', {
-    type: DB.sequelize.QueryTypes.UPDATE,
+  await MySQL.sequelize.query('UPDATE users SET email = ? WHERE id = ?', {
+    type: MySQL.sequelize.QueryTypes.UPDATE,
     replacements: [newEmail, userId],
   });
   return {};

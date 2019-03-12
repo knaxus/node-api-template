@@ -10,7 +10,7 @@ if (result.error) {
 }
 
 // Let the config load
-const DB = require('./db');
+const { MySQL } = require('./db');
 
 // custom modules
 const allRoutes = require('./routes');
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
   });
 });
 
-DB.sequelize
+MySQL.sequelize
   .sync()
   .then(() => {
     const { PORT } = process.env;
