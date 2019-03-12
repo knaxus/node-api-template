@@ -4,7 +4,6 @@ const CONFIG = require('../config');
 mongoose.Promise = global.Promise;
 
 // const MONGODB_URI = `mongodb://${username}:${password}@${host}:${port}/${databaseName}`;
-const MONGO_URL = CONFIG.MONGODB_URI;
 
 // console.log(MONGODB_URI);
 const options = {
@@ -13,15 +12,15 @@ const options = {
   useNewUrlParser: true,
 };
 
-// mongoose.connect(MONGODB_URI, options);
+mongoose.connect(CONFIG.MONGODB_URI, options);
 
-mongoose.connect(MONGO_URL, {
-  // auth: {
-  //   user: username,
-  //   password: password
-  // },
-  options,
-});
+// mongoose.connect(CONFIG.MONGODB_URI, {
+//   auth: {
+//     user: username,
+//     password: password
+//   },
+//   options,
+// });
 
 mongoose.connection.on('connected', () => {
   // eslint-disable-next-line no-console

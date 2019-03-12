@@ -11,6 +11,7 @@ if (result.error) {
 
 // Let the config load
 const { MySQL } = require('./db');
+require('./db/mongodb');
 
 // custom modules
 const allRoutes = require('./routes');
