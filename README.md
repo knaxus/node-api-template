@@ -1,7 +1,5 @@
 # Scalable API Template for Node.js Applications
 
-This repo contains code for user management and ACL
-
 ## How to RUN
 
 - There are NPM scripts to help your development enviroment easy
