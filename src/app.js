@@ -1,8 +1,9 @@
 const express = require('express');
 const requestValidator = require('express-validator');
 const cors = require('cors');
-const logger = require('morgan');
+const morgan = require('morgan');
 const dotenv = require('dotenv');
+const { logger } = require('./utils');
 
 const result = dotenv.config();
 if (result.error) {
@@ -23,8 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.disable('x-powered-by');
 app.use(
-  logger('dev', {
+  morgan('dev', {
     skip: () => app.get('env') === 'test',
+    stream: logger.stream,
   }),
 );
 app.use(requestValidator());
@@ -39,9 +41,9 @@ MySQL.sequelize
   .sync()
   .then(() => {
     const { PORT } = process.env;
-    app.listen(PORT, () => console.log(`App running at http://localhost:${PORT}`));
+    app.listen(PORT, () => logger.info(`App running at http://localhost:${PORT}`));
   })
-  .catch(err => console.error(err));
+  .catch(err => logger.log('error', err));
 
 app.use(allRoutes);
 

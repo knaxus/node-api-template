@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const CONFIG = require('../config');
+const { logger } = require('../utils');
 
 mongoose.Promise = global.Promise;
 
@@ -12,9 +12,9 @@ const options = {
   useNewUrlParser: true,
 };
 
-mongoose.connect(CONFIG.MONGODB_URI, options);
+mongoose.connect(process.env.MONGODB_URI, options);
 
-// mongoose.connect(CONFIG.MONGODB_URI, {
+// mongoose.connect(process.env.MONGODB_URI, {
 //   auth: {
 //     user: username,
 //     password: password
@@ -24,17 +24,17 @@ mongoose.connect(CONFIG.MONGODB_URI, options);
 
 mongoose.connection.on('connected', () => {
   // eslint-disable-next-line no-console
-  console.info('Connected to MongoDB');
+  logger.info('Connected to MongoDB');
 });
 mongoose.connection.on('error', (err) => {
   // eslint-disable-next-line no-console
-  console.error('MongoDB connection error:', err);
+  logger.error('MongoDB connection error:', err);
   process.exit(-1);
 });
 
 mongoose.connection.on('disconnected', () => {
   // eslint-disable-next-line no-console
-  console.error('MongoDB disconnected');
+  logger.error('MongoDB disconnected');
 });
 
 module.exports = mongoose;
