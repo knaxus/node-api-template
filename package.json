@@ -20,6 +20,7 @@
   "author": "Ashok Dey <ashokdey100@gmail.com> (http://ashokdey.in)",
   "license": "MIT",
   "dependencies": {
+    "@rama41222/node-logger": "^1.0.1",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

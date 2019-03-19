@@ -7,7 +7,7 @@ const {
   createaRefreshToken,
   decryptRefreshToken,
 } = require('./encryption');
-const logger = require('./logger');
+// const logger = require('./logger');
 
 module.exports = {
   hashPayload,
@@ -19,5 +19,5 @@ module.exports = {
     createaRefreshToken,
     decryptRefreshToken,
   },
-  logger,
+  // logger,
 };

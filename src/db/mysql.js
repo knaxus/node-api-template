@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-const { logger } = require('../utils');
+
+const { logger } = global;
+// const { logger } = require('../utils');
 
 const db = {};
 

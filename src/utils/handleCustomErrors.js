@@ -1,5 +1,6 @@
 const sendResponse = require('./sendResponse');
-const logger = require('./logger');
+// const { logger } = require('./logger');
+const { logger } = global;
 
 function handleCustomThrow(res, error) {
   logger.log('error', error);

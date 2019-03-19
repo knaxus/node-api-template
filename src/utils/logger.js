@@ -26,6 +26,7 @@ const logger = winston.createLogger({
   ),
   defaultMeta: { service: 'user-service' },
   colorize: true,
+  handleExceptions: true,
   transports: [
     //
     // - Write to all logs with level `info` and below to `combined.log`
@@ -36,6 +37,9 @@ const logger = winston.createLogger({
       level: 'error',
     }),
     new winston.transports.File({ filename: path.resolve(__dirname, '../../logs/combined.log') }),
+  ],
+  exceptionHandlers: [
+    new winston.transports.File({ filename: path.resolve(__dirname, '../../logs/exceptions.log') }),
   ],
 });
 
