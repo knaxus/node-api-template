@@ -53,7 +53,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 // create a stream object with a 'write' function that will be used by `morgan`
 logger.stream = {
-  write(message, encoding) {
+  // write(message, encoding) {
+  write(message) {
     // use the 'info' log level so the output will be
     // picked up by both transports (file and console)
     logger.info(message);

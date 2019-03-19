@@ -9,10 +9,12 @@
   },
   "engineStrict": true,
   "scripts": {
+    "lint": "./node_modules/.bin/eslint ./src",
     "test": "jest --watchAll",
     "test:verbose": "jest --verbose",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "prepush": "npm run lint"
   },
   "keywords": [],
   "author": "Ashok Dey <ashokdey100@gmail.com> (http://ashokdey.in)",
@@ -37,6 +39,7 @@
     "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "husky": "^1.3.1",
     "jest": "^24.3.1",
     "nodemon": "^1.18.9"
   }
