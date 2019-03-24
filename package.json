@@ -10,8 +10,8 @@
   "engineStrict": true,
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./src",
-    "test": "jest --watchAll",
-    "test:verbose": "jest --verbose",
+    "test": "jest --verbose",
+    "test:watch": "jest --watchAll",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "prepush": "npm run lint"
