@@ -30,6 +30,7 @@ const sequelize = new Sequelize(
       min: process.env.DB_POOL_MIN,
       idle: process.env.DB_CONNECTION_IDLE,
     },
+    operatorsAliases: false, // to supress the deprecation warning
   },
 );
 
