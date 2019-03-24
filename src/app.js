@@ -3,19 +3,18 @@ const requestValidator = require('express-validator');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
-const { logger } = require('./utils');
 
 const result = dotenv.config();
 if (result.error) {
   throw result.error;
 }
 
-// Let the config load
-const { MySQL } = require('./db');
-require('./db/mongodb');
-
 // custom modules
+const { logger } = require('./utils');
+const { MySQL } = require('./db');
 const allRoutes = require('./routes');
+
+const { PORT } = process.env;
 
 const app = express();
 
@@ -40,7 +39,6 @@ app.get('/', (req, res) => {
 MySQL.sequelize
   .sync()
   .then(() => {
-    const { PORT } = process.env;
     app.listen(PORT, () => logger.info(`App running at http://localhost:${PORT}`));
   })
   .catch(err => logger.log('error', err));
