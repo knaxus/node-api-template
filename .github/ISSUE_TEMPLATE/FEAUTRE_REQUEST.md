@@ -6,18 +6,20 @@ labels: 'feature'
 assignees: 'ashokdey'
 ---
 
-# Feature Name
+## Overview
 
 Tell us about the feature and attach relavant links (if any)
 
-## Overview
+## Feature Explanation
 
-Why you need this feature, where you need it and can it be a general feature for all use cases?.
+- Why you need this feature?
+- Where you need it?
+- And can it be a general feature for all use cases?
 
-## Benifits
+## Benefits
 
 Mention the benifits of the feature and how it will help this api-temaplte to be scalable and robust
 
 ## Links
 
-We want to know you better, feel free to drop your email, website and linkedin profile
+We want to know you better, feel free to drop your email, website and Linkedin profile
