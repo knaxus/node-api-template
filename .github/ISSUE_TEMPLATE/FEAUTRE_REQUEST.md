@@ -3,7 +3,7 @@ name: Feature Request
 about: Tell us what you want
 title: Need <Topic> For <Task>
 labels: 'feature'
-assignees: '@ashokdey'
+assignees: 'ashokdey'
 ---
 
 # Feature Name

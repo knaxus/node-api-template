@@ -3,7 +3,7 @@ name: Bug Report
 about: Let us know the bug you encountered
 title: Bug in <Topic>
 labels: 'bug'
-assignees: '@ashokdey'
+assignees: 'ashokdey'
 ---
 
 # Explain the Bug
